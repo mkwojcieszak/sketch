@@ -1,0 +1,304 @@
+
+
+/*
+Layers:
+GAMING - z 30
+IS A - z 10
+LIFESTYLE - z 20
+
+middle image: z 15
+bulletpoints: z 25
+
+*/
+
+$clr-main: #f3f3f3;
+$clr-seco: #151515;
+
+@media screen and (min-width: 1099px) {
+    body {
+        overflow-y: hidden;
+    }
+}
+
+
+body {
+    overflow-x: hidden;
+}
+
+.bg-title {
+    position: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 220px;
+    height: 100px;
+
+    transform: translateX(-110px) translateY(-50px);
+    transition: 0.3s;
+
+    color: $clr-main;
+    text-shadow: 0 0 10px #05050510, 0 0 20px #05050510, 0 0 40px #05050510;
+    font-size: 7rem;
+
+    &.t1 { left: 15vw; top: 15vh; }
+    &.t2 { left: 25vw; top: 50vh; }
+    &.t3 { left: 15vw; top: 85vh; }
+
+    &.t4 { left: 50vw; top: 30vh; }
+    &.t5 { left: 50vw; top: 50vh;
+        font-size: 50rem;
+        text-shadow: 0 0 10px #05050505, 0 0 20px #05050505, 0 0 40px #05050505;
+    }
+    &.t6 { left: 50vw; top: 70vh; }
+
+    &.t7 { left: 85vw; top: 15vh; }
+    &.t8 { left: 75vw; top: 50vh; }
+    &.t9 { left: 85vw; top: 85vh; }
+}
+
+@media screen and (max-width: 991px) {
+    .bg-title {
+        font-size: 5rem;
+        &.t5 { font-size: 40rem; }
+    }
+}
+
+.dark .bg-title {
+    color: $clr-seco;
+    text-shadow: 0 0 10px #fbfbfb10, 0 0 20px #fbfbfb10, 0 0 40px #fbfbfb10;
+
+    &.t5 {
+        text-shadow: 0 0 10px #fbfbfb05, 0 0 20px #fbfbfb05, 0 0 40px #fbfbfb05;
+    }
+}
+
+
+.main-title {
+    width: 470px;
+    position: fixed;
+    left: 50vw;
+    transform: translateX(-235px);
+    color: #fafafa;
+    text-shadow: 0 0 10px #05050580, 0 0 20px #05050580, 0 0 40px #05050580;
+    font-size: 5rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    &.t1 {
+        top: calc(30vh - 65px);
+        z-index: 30;
+    }
+    &.t2 {
+        top: calc(50vh - 65px);
+        z-index: 10;
+        position: absolute;
+    }
+    &.t3 {
+        top: calc(70vh - 65px);
+        z-index: 20;
+        position: absolute;
+    }
+
+}
+
+
+@media screen and (max-width: 991px) and (orientation: portrait) {
+    .main-title {
+        &.t1 {
+            top: calc(50vh - 175px);
+            z-index: 30;
+        }
+        &.t2 {
+            top: calc(50vh - 43px);
+            z-index: 10;
+        }
+        &.t3 {
+            top: calc(50vh + 80px);
+            z-index: 20;
+        } 
+    }
+}
+
+#img1 {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: #802050;
+    z-index: 0;
+    border: 10px solid $clr-seco;
+}
+
+.dark #img1 {  
+    border: 10px solid gray;
+}
+
+
+#text1 {
+    transition: 0.3s;
+    position: relative;
+    left: calc(50vw - 280px);
+    top: calc(30vh - 75px);
+    width: 60%;
+    max-width: 770px;
+    border-top: 5px solid $clr-seco;
+    border-bottom: 5px solid $clr-seco;
+    background: #f3f3f380;
+    padding: 6px 40px;
+    font-size: 2.5em;
+    z-index: 25;
+    text-align: justify;
+
+    * {
+        color: $clr-seco;
+        transition: 0.3s;
+    }
+
+    h3 {
+        color: #fafafa;
+        text-shadow: 0 0 10px #05050580, 0 0 20px #05050580, 0 0 40px #05050580;
+        font-size: 5rem;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        .alpha0 { opacity: 0; }
+    }
+
+}
+
+.dark #text1 {
+    border-top: 5px solid $clr-main;
+    border-bottom: 5px solid $clr-main;
+    background: #05050560;
+
+    * {
+        color: $clr-main;
+    }
+
+    h3 {
+        text-shadow: 0 0 10px #fafafa80, 0 0 20px #fafafa80, 0 0 40px #fafafa80;
+    }
+}
+
+// only for very wide but short view, where image went under nav menu without this query
+@media screen and (max-height: 800px) and (min-width: 1100px) and (orientation: landscape){
+    #img1 { max-height: calc(90% - 120px); }
+}
+
+@media screen and (min-width: 1101px) {
+    .main-title.t1.bound {
+        position: absolute;
+        top: calc(130vh - 65px);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    #text1 p { font-size: 0.8em; }
+
+    .main-title { 
+        position: absolute;
+        font-size: 4rem;
+    }
+
+    #text1 {
+        margin: 0;
+        width: 80%;
+        left: 10%;
+        padding: 6px 15px;
+    }
+
+    #text1 h3 {
+        font-size: 4rem;
+        width: 90%;
+    }
+
+    #text1 h3 .alpha0 {
+        opacity: 1;
+        color: $clr-main;
+        font-size: 4rem;
+    }
+
+}
+
+@media screen and (max-width: 850px) {
+
+    #text1 p { font-size: 0.65em; }
+    #text1 h3,
+    #text1 h3 .alpha0 {
+        font-size: 3.5rem;
+        width: max-content;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    #text1 {
+        left: 5vw;
+        top: 80px;
+        width: calc(90vw - 30px);
+    }
+
+    #text1 p { font-size: 0.55em; }
+    #text1 h3,
+    #text1 h3 .alpha0 { font-size: 2.5rem; }
+}
+
+.scroller {
+    width: 40px;
+    height: 40px;
+    background: $clr-main;
+    border: 2px solid $clr-seco;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    position: absolute;
+    left: calc(50vw - 22px);
+    top: 0;
+    z-index: 90;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        color: $clr-seco;
+    }
+}
+
+.dark .scroller {
+    background: $clr-seco;
+    border: 2px solid $clr-main;
+    transition: 0.3s;
+    i {
+        color: $clr-main;
+        transition: 0.3s;
+    }
+}
+
+.scroller.s1 { top: calc(100vh - 50px); }
+
+.scroller.s2 { top: calc(100vh + 70px); }
+.scroller.s3 { top: calc(200vh - 50px); }
+
+.scroller.s4 { top: calc(200vh + 70px); }
+.scroller.s5 { top: calc(300vh - 50px); }
+
+.scroller.s6 { top: calc(300vh + 70px); }
+.scroller.s7 { top: calc(400vh - 50px); }
+
+.scroller.s8 { top: calc(0vh + 70px); }
+.scroller.s9 { top: calc(100vh - 50px); }
+
+
+@media screen and (max-width: 1100px) {
+    .scroller { display: none; }
+    .body { overflow-y: scroll; }
+}
+
+
+@media screen and (max-width: 650px) and(orientation: portrait) {
+    .main-title {
+        width: 260px;
+        transform: translateX(-130px);
+    }
+}

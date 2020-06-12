@@ -1,0 +1,215 @@
+$clr-main: #f3f3f3;
+$clr-seco: #151515;
+
+#light-mode, #dark-mode {
+    width: 60px;
+    height: 60px;
+    z-index: 110;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    border: none;
+    background: none;
+
+    i {
+        font-size: 1.2rem;
+        font-weight: bold; // temporary
+        letter-spacing: 1px; // temporary
+        color: $clr-seco; // temporary
+    }
+}
+
+#dark-mode i {
+    color: $clr-seco;
+}
+
+#light-mode {
+    display: none;
+}
+
+.dark #light-mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark #dark-mode {
+    display: none;
+}
+
+
+@media screen and (max-width: 1100px) {
+    #light-mode i { color: $clr-main; }
+}
+
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.nav-icon {
+    display: none;
+    z-index: 5;
+}
+
+.nav-list {
+    display: flex; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: $clr-main;
+    border-bottom: 5px solid $clr-seco;
+
+    button {
+        border: none;
+        background: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 60px;
+        color: $clr-seco;
+        letter-spacing: 2px;
+        font-size: 1.3em;
+
+        &:hover {
+            color: $clr-main;
+            background: $clr-seco;
+        }
+
+        &.logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            width: 70px;
+        }
+    }
+}
+
+.dark .nav-list {
+    background: #bbbbbb;
+}
+
+@media screen and (max-width: 1100px) {
+
+    .nav-list {
+        left: -310px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        width: 300px;
+        height: 100%;
+        border-bottom: none;
+        border-right: 5px solid $clr-seco;
+        transition: 0;
+        font-size: 1.5em;
+    }
+
+    .nav-menu .nav-icon {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 15px;
+        width: 40px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+
+        .line {
+            width: 100%;
+            height: 5px;
+            background: $clr-seco;
+            transition: 0.3s;
+        }
+    }
+
+    .dark .nav-menu .nav-icon .line { background: $clr-main; }
+    .dark .nav-menu.visible .nav-icon .line { background: $clr-seco; }
+
+    .nav-menu.visible .nav-icon .line.l2 { background: none; }
+
+    .nav-menu.visible .nav-icon .line.l1 {
+        transform: rotate(225deg) translate(-10px, -8px);
+    }
+
+    .nav-menu.visible .nav-icon .line.l3 {
+        transform: rotate(-225deg) translate(-10px, 8px);
+    }
+
+
+
+    .nav-menu.visible .nav-list { left: 0; }
+
+
+    .nav-list button {
+        width: max-content;
+        margin-right: 60px;
+        position: relative;
+        height: 60px;
+        padding: 5px;
+        
+        &:hover {
+            color: $clr-seco;
+            background: none;
+        }
+
+        &.logo {
+            font-size: 1.5em;
+        }
+    }
+
+    .dark .nav-list button {
+        &:hover {
+            background: none;
+        }
+    }
+
+    .nav-button::before,
+    .nav-button::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: $clr-seco;
+        transform: scaleX(0);
+        transition: transform 0.3s;
+    }
+
+    .nav-button::before {
+        top: 0;
+        transform-origin: left;
+    }
+    .nav-button::after {
+        bottom: 0;
+        transform-origin: right;
+    }
+
+    .nav-button:hover::before,
+    .nav-button:hover::after {
+        transform: scaleX(1);
+    }
+
+}
+
+@media screen and (max-width: 1090px) {
+    .nav-list {
+        transition: 0.3s;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    .nav-list button {
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,119 @@
+$clr-main: #f3f3f3;
+$clr-seco: #151515;
+
+#gallery {
+    z-index: 50;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gallery-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 55px calc(100% - 110px) 55px;
+    grid-template-rows: auto;
+    grid-template-areas: "prev imgbox next";
+    left: 0;
+    top: 30px;
+    width: 90%;
+    max-width: 1000px;
+    height: 80%;
+    margin: 0;
+    //margin-top: 60px;
+    //border: 2px solid $clr-seco;
+    z-index: 50;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1100px) {
+    #gallery-container {
+        top: 0;
+    }
+}
+
+#prev-img,
+#next-img {
+    height: 100px;
+    width: 50px;
+    float: center;
+    background: #00000010;
+    border: 2px solid $clr-seco;
+    * { color: $clr-seco; }
+}
+
+#prev-img {
+    grid-area: prev;
+    margin: auto 0;
+}
+#next-img {
+    grid-area: next;
+    margin: auto 0;
+}
+
+
+.img-box {
+    grid-area: imgbox;
+    margin: 0 auto;
+    max-width: calc(100% - 110px);
+    max-height: 100%;
+    min-width: 100px;
+    min-height: 100px;
+    //border: 5px solid $clr-seco;
+}
+
+
+.gal-img { display: none; }
+
+.gal-img.active {
+    border: 5px solid $clr-seco;
+    display: flex;
+    max-width: calc(100% - 10px);
+    height: calc(100% - 10px);
+}
+
+@media screen and (max-width: 1100px) and (orientation: portrait) {
+    .gal-img.active {
+        max-height: 100%;
+        height: auto;
+        width: 100%;
+    }
+}
+
+.dark {
+    #prev-img,
+    #next-img {
+        height: 100px;
+        width: 50px;
+        float: center;
+        background: #ffffff10;
+        border: 2px solid $clr-main;
+        * { color: $clr-main; }
+    }
+
+    .img-box {
+        border: 5px solid gray;
+    }
+}
+
+@media screen and (max-width: 1100px) and (orientation: portrait) {
+    #gallery-container {
+        width: 100%;
+        margin-top: 30px;
+        height: calc(100% - 100px);
+        grid-template-columns: 50% 50%;
+        grid-template-rows: calc(100% - 100px) 100px;
+        grid-template-areas:
+            "imgbox imgbox"
+            "prev next"
+        ;
+    }
+
+    #prev-img { margin: 0 auto; }
+    #next-img { margin: 0 auto; }
+    .img-box {
+        margin: auto auto 50px auto;
+        max-width: 90%;
+    }
+}

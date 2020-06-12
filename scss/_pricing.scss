@@ -1,0 +1,166 @@
+$clr-main: #f3f3f3;
+$clr-seco: #151515;
+
+
+#pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/** 
+Pricing:
+Our prices range from $50 to $80 per hour, depending on you skill level.
+Let us call you
+1 hour of 1 on 1 coaching for juniors = $50
+1h for mid level = $80
+
+Tutor       Expertise   Price
+John Doe    *****       $90
+John Doe    *****       $90
+John Doe    ****        $50
+John Doe    ****        $50
+John Doe    ****        $50
+
+*/
+
+.pricing-table {
+    border-left: 5px solid $clr-seco;
+    min-width: 300px;
+    max-width: 700px;
+    width: 40vw;
+    position: relative;
+    z-index: 50;
+    border-spacing: 0px;
+
+    * {
+        font-size: 2rem;
+        color: $clr-seco;
+        letter-spacing: 1px;
+    }
+
+    tr {
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    tr:nth-child(even) { background: #00000010; }
+
+    thead { background: #00000030; }
+
+    td {
+        width: 50%;
+    }
+
+    td:nth-child(2) { text-align: center; width: 30%; }
+    td:nth-child(3) { text-align: right; width: 20%; }
+
+    p { padding: 0 20px; }
+
+    i {
+        font-size: 1.8rem;
+        color: gray;
+    }
+    .checked {
+        color: orange;
+        text-shadow: 0 0 10px gold;
+    }
+
+    .ratings {
+        position: relative;
+        vertical-align: middle;
+        display: inline-block;
+        color: #b1b1b1 !important;
+        overflow: hidden;
+    }
+    
+    .full-stars{
+        position: absolute;
+        left: 0;
+        top: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #fde16d;
+    }
+    
+    .empty-stars:before,
+    .full-stars:before {
+        content: "\1F7CA\1F7CA\1F7CA\1F7CA\1F7CA";
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+    
+    .empty-stars:before {
+        color: #aaaaaa !important;
+        -webkit-text-stroke: 1px #848484 !important;
+    }
+    
+    .full-stars:before {
+        -webkit-text-stroke: 1px orange;
+    }
+    
+    /* Webkit-text-stroke is not supported on firefox or IE */
+    /* Firefox */
+    @-moz-document url-prefix() {
+        .full-stars{
+            color: #ECBE24;
+        }
+    }
+}
+
+.dark .pricing-table {
+    border-left: 5px solid $clr-main;
+    *:not(i) {
+        color: $clr-main;
+    }
+
+    tr:nth-child(even) { background: #ffffff10; }
+
+    thead { background: #ffffff30; }
+
+}
+
+@media screen and (max-width: 1700px) {
+    .pricing-table { width: 60vw; }
+}
+
+@media screen and (max-width: 1400px) {
+    .pricing-table { width: 70vw; }
+}
+
+@media screen and (max-width: 1100px) {
+    .pricing-table { width: 90vw; }
+}
+
+@media screen and (max-width: 900px) {
+    .pricing-table {
+        * { font-size: 1.7rem; }
+        i { font-size: 1.4rem; }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .pricing-table {
+        * { font-size: 1.4rem; }
+        i { font-size: 1.1rem; }
+
+        .empty-stars:before,
+        .full-stars:before {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .pricing-table {
+        * { font-size: 1.1rem; }
+        i { font-size: 0.8rem; }
+        p { padding: 0 5px; }
+        .empty-stars:before,
+        .full-stars:before {
+            font-size: 1.1rem;
+            letter-spacing: 0px;
+        }
+    }
+}

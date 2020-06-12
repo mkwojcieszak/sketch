@@ -1,0 +1,30 @@
+$clr-main: #f3f3f3;
+$clr-seco: #151515;
+
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+///////////////
+
+#design-1 {
+
+    width: 100%;
+    min-height: 300vh;
+    background: $clr-main;
+    &.dark { background: $clr-seco; }
+
+}
+
+@import './design1';
+@import './menu';
+@import './front';
+@import './gallery';
+@import './pricing';
+@import './contact';
